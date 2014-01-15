@@ -2,6 +2,8 @@
 
 	<head>
 
+	    <base href="/angular-ui-router-anim-in-out/"></base>
+
 		<title>angular-ui-router-anim-in-out</title>
 
 		<link rel="stylesheet" type="text/css" href="example/styles.css">
@@ -16,7 +18,7 @@
 			<a href="/page2/">Page 2</a>
 		</div>
 
-		<div id="main" ui-view="main" class="anim-in-out anim-fade"></div>
+		<div id="main" ui-view="main" class="anim-in-out anim-fade" data-anim-speed="500"></div>
 
 		<script type="text/javascript" src="http://code.angularjs.org/1.2.8/angular.min.js"></script>
 		<script type="text/javascript" src="http://code.angularjs.org/1.2.8/angular-animate.min.js"></script>
