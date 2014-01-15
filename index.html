@@ -1,0 +1,29 @@
+<html>
+
+	<head>
+
+		<title>angular-ui-router-anim-in-out</title>
+
+		<link rel="stylesheet" type="text/css" href="example/styles.css">
+		<link rel="stylesheet" type="text/css" href="anim-in-out.css">
+
+	</head>
+
+	<body ng-app="ExampleApp">
+
+		<div id="menu">
+			<a href="/">Page 1</a>
+			<a href="/page2/">Page 2</a>
+		</div>
+
+		<div id="main" ui-view="main" class="anim-in-out anim-fade"></div>
+
+		<script type="text/javascript" src="http://code.angularjs.org/1.2.8/angular.min.js"></script>
+		<script type="text/javascript" src="http://code.angularjs.org/1.2.8/angular-animate.min.js"></script>
+		<script type="text/javascript" src="http://cdn.jsdelivr.net/angular.ui-router/0.2.7/angular-ui-router.min.js"></script>
+		<script type="text/javascript" src="anim-in-out.js"></script>
+		<script type="text/javascript" src="example/app.js"></script>
+
+	</body>
+
+</html>
