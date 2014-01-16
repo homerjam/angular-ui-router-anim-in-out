@@ -8,20 +8,37 @@ body {
 	user-select: none;
 }
 
-#main {
-	position: absolute;
-	top: 50%;
-	width: 100%;
-	text-align: center;
-	-webkit-transform: translateY(-50%);
-	-ms-transform: translateY(-50%);
-	transform: translateY(-50%);
-}
-
 #menu {
+	position: relative;
+	z-index: 1;
 	margin: 2%;
 }
 
 #menu a {
 	margin: 0 1%;
+}
+
+#main {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+}
+
+h1 {
+	font-size: 10em;
+	margin: 0;
+}
+
+#main .wrapper {
+	position: absolute;
+	left: 10%;
+	right: 10%;
+	top: 10%;
+	bottom: 10%;
+	height: 10em;
+	margin: auto;
+	text-align: center;
 }

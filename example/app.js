@@ -1,67 +1,81 @@
-angular.module('Page1Ctrl', []).controller('Page1Ctrl', ['$scope',
-    function($scope) {
+(function() {
 
-        $scope.$on('animIn', function() {
-            console.log('Page1Ctrl: animIn');
-        });
+    'use strict';
 
-    }
-]);
+    angular.module('Page1Ctrl', []).controller('Page1Ctrl', ['$scope',
+        function($scope) {
 
-angular.module('Page2Ctrl', []).controller('Page2Ctrl', ['$scope',
-    function($scope) {
-
-        $scope.$on('animIn', function() {
-            console.log('Page2Ctrl: animIn');
-        });
-
-    }
-]);
-
-angular.module('ExampleApp', ['ui.router', 'ngAnimate', 'anim-in-out', 'Page1Ctrl', 'Page2Ctrl'])
-    .config(['$stateProvider', '$locationProvider', '$urlRouterProvider',
-        function($stateProvider, $locationProvider, $urlRouterProvider) {
-
-            $locationProvider.html5Mode(true);
-
-            $urlRouterProvider.otherwise("/");
-
-            // Deal with missing trailing slash
-            $urlRouterProvider.rule(function($injector, $location) {
-                var path = $location.path(),
-                    search = $location.search();
-                if (path[path.length - 1] !== '/') {
-                    if (Object.keys(search).length === 0) {
-                        return path + '/';
-                    } else {
-                        var params = [];
-                        angular.forEach(search, function(v, k) {
-                            params.push(k + '=' + v);
-                        });
-                        return path + '/?' + params.join('&');
-                    }
-                }
+            $scope.$on('animIn', function() {
+                console.log('Page1Ctrl: animIn');
             });
 
-            $stateProvider.state('page1', {
-                url: '/',
-                views: {
-                    main: {
-                        template: '<h1>Page 1</h1>',
-                        controller: 'Page1Ctrl'
-                    }
-                }
-            });
-
-            $stateProvider.state('page2', {
-                url: '/page2/',
-                views: {
-                    main: {
-                        template: '<h1 class="anim-zoom-in">Page 2</h1>',
-                        controller: 'Page2Ctrl'
-                    }
-                }
+            $scope.$on('animOut', function() {
+                console.log('Page1Ctrl: animOut');
             });
 
         }
     ]);
+
+    angular.module('Page2Ctrl', []).controller('Page2Ctrl', ['$scope',
+        function($scope) {
+
+            $scope.$on('animIn', function() {
+                console.log('Page2Ctrl: animIn');
+            });
+
+            $scope.$on('animOut', function() {
+                console.log('Page2Ctrl: animOut');
+            });
+
+        }
+    ]);
+
+    angular.module('ExampleApp', ['ngAnimate', 'ui.router', 'anim-in-out', 'Page1Ctrl', 'Page2Ctrl'])
+        .config(['$stateProvider', '$locationProvider', '$urlRouterProvider',
+            function($stateProvider, $locationProvider, $urlRouterProvider) {
+
+                // $locationProvider.html5Mode(true);
+
+                $urlRouterProvider.otherwise("/");
+
+                // Deal with missing trailing slash
+                $urlRouterProvider.rule(function($injector, $location) {
+                    var path = $location.path(),
+                        search = $location.search();
+                    if (path[path.length - 1] !== '/') {
+                        if (Object.keys(search).length === 0) {
+                            return path + '/';
+                        } else {
+                            var params = [];
+                            angular.forEach(search, function(v, k) {
+                                params.push(k + '=' + v);
+                            });
+                            return path + '/?' + params.join('&');
+                        }
+                    }
+                });
+
+                $stateProvider.state('page1', {
+                    url: '/',
+                    views: {
+                        main: {
+                            templateUrl: 'example/page1.html',
+                            controller: 'Page1Ctrl'
+                        }
+                    }
+                });
+
+                $stateProvider.state('page2', {
+                    url: '/page2/',
+                    views: {
+                        main: {
+                            templateUrl: 'example/page2.html',
+                            controller: 'Page2Ctrl'
+                        }
+                    }
+                });
+
+            }
+        ]);
+
+})();

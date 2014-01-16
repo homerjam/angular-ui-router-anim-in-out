@@ -1,0 +1,133 @@
+@import "compass";
+
+.anim-in-out {
+
+	&.anim-in-setup {
+
+		&.anim-swap, .anim-swap {
+		}
+
+		&.anim-fade, .anim-fade {
+			opacity: 0;
+		}
+
+		&.anim-slide-below, .anim-slide-below {
+			@include translateY(20px);
+		}
+
+		&.anim-slide-below-fade, .anim-slide-below-fade {
+			opacity: 0;
+			@include translateY(20px);
+		}
+
+		&.anim-zoom-in, .anim-zoom-in {
+			@include scale(0.95);
+		}
+
+		&.anim-zoom-out, .anim-zoom-out {
+			@include scale(1.025);
+		}
+
+	}
+
+	&.anim-in {
+
+		&.anim-swap, .anim-swap {
+		}
+
+		&.anim-fade, .anim-fade {
+			opacity: 1;
+			@include transition(all, 500ms);
+		}
+
+		&.anim-slide-below, .anim-slide-below {
+			@include translateY(0);
+			@include transition(all, 500ms);
+		}
+
+		&.anim-slide-below-fade, .anim-slide-below-fade {
+			opacity: 1;
+			@include translateY(0);
+			@include transition(all, 500ms);
+		}
+
+		&.anim-zoom-in, .anim-zoom-in {
+			@include scale(1);
+			@include transition(all, 500ms);
+		}
+
+		&.anim-zoom-out, .anim-zoom-out {
+			@include scale(1);
+			@include transition(all, 500ms);
+		}
+
+	}
+
+	&.anim-out-setup {
+
+		&.anim-swap, .anim-swap {
+		}
+
+		&.anim-fade, .anim-fade {
+			opacity: 1;
+			@include transition(all, 500ms);
+		}
+
+		&.anim-slide-below, .anim-slide-below {
+			@include translateY(0);
+			@include transition(all, 500ms);
+		}
+
+		&.anim-slide-below-fade, .anim-slide-below-fade {
+			opacity: 1;
+			@include translateY(0);
+			@include transition(all, 500ms);
+		}
+
+		&.anim-zoom-in, .anim-zoom-in {
+			@include scale(1);
+			@include transition(all, 500ms);
+		}
+
+		&.anim-zoom-out, .anim-zoom-out {
+			@include scale(1);
+			@include transition(all, 500ms);
+		}
+
+	}
+
+	&.anim-out {
+
+		&.anim-swap, .anim-swap {
+			display: none;
+		}
+
+		&.anim-fade, .anim-fade {
+			opacity: 0;
+			@include transition(all, 500ms);
+		}
+
+		&.anim-slide-below, .anim-slide-below {
+			@include translateY(20px);
+			@include transition(all, 500ms);
+		}
+
+		&.anim-slide-below-fade, .anim-slide-below-fade {
+			opacity: 0;
+			@include translateY(20px);
+			@include transition(all, 500ms);
+		}
+
+		&.anim-zoom-in, .anim-zoom-in {
+			@include scale(0.95);
+			@include transition(all, 500ms);
+		}
+
+		&.anim-zoom-out, .anim-zoom-out {
+			@include scale(1.025);
+			@include transition(all, 500ms);
+		}
+
+	}
+
+}

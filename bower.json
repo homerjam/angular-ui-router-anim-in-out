@@ -3,8 +3,8 @@
     "version": "0.0.1",
     "main": "anim-in-out.js",
     "dependencies": {
-        "angular": ">= 1.2.4",
-        "angular-animate": ">= 1.2.4",
-        "angular-ui-router": ">= 0.2.7"
+        "angular": "~1.2.8",
+        "angular-animate": "~1.2.8",
+        "angular-ui-router": "~0.2.0"
     }
 }

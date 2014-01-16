@@ -1,6 +1,6 @@
 # angular-ui-router-anim-in-out
 
-An animation directive to help bridge the gap between ngAnimate 1.2+ and ui-router
+An animation directive to use with ngAnimate 1.2+ and ui-router
 
 
 ## Installation
