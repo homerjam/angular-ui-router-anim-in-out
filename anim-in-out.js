@@ -17,7 +17,9 @@
                             angular.element(element).addClass('anim-in');
 
                             if (!cancelled) {
-                                angular.element(element).children().scope().$broadcast('animIn');
+                                if (angular.element(element).children().length > 0) {
+                                    angular.element(element).children().scope().$broadcast('animIn');
+                                }
                             }
                         };
                     },
