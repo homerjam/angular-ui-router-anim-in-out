@@ -2,7 +2,6 @@
 
 An animation directive to use with ngAnimate 1.2+ and ui-router
 
-Requires 1.2 branch of ui-router (`lib/angular-ui-router.js`)
 
 ## Installation
 

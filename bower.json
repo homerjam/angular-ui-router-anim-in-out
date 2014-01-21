@@ -5,6 +5,7 @@
     "dependencies": {
         "angular": "~1.2.8",
         "angular-animate": "~1.2.8",
-        "angular-ui-router": "~0.2.0"
+        "angular-ui": "~0.4.0",
+        "angular-ui-router": "0.2.8-bowratic-tedium"
     }
 }
