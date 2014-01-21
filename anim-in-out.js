@@ -20,6 +20,10 @@
                                 if (angular.element(element).children().length > 0) {
                                     angular.element(element).children().scope().$broadcast('animIn');
                                 }
+
+                                $timeout(function(){
+                                    angular.element(element).removeClass('anim-in');
+                                }, speed);
                             }
                         };
                     },
