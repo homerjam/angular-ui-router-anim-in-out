@@ -2,8 +2,8 @@
     'use strict';
 
     angular.module('anim-in-out', ['ngAnimate'])
-        .animation('.anim-in-out', ['$timeout',
-            function($timeout) {
+        .animation('.anim-in-out', ['$rootScope', '$timeout',
+            function($rootScope, $timeout) {
                 return {
                     enter: function(element, done) {
                         var speed = angular.element(element).attr('data-anim-speed') !== undefined ? parseInt(angular.element(element).attr('data-anim-speed')) : 1000;
@@ -18,22 +18,26 @@
 
                             if (!cancelled) {
                                 if (angular.element(element).children().length > 0) {
-                                    angular.element(element).children().scope().$broadcast('animIn');
+                                    angular.element(element).children().scope().$broadcast('animIn', element, speed);
                                 }
 
                                 $timeout(function(){
+                                    $rootScope.$emit('animEnd', element, speed);
+
                                     angular.element(element).removeClass('anim-in');
                                 }, speed);
                             }
                         };
                     },
                     leave: function(element, done) {
-                        if (angular.element(element).children().length > 0) {
-                            angular.element(element).children().scope().$broadcast('animOut');
-                        }
-                        
                         var speed = angular.element(element).attr('data-anim-speed') !== undefined ? parseInt(angular.element(element).attr('data-anim-speed')) : 1000;
 
+                        $rootScope.$emit('animStart', element, speed);
+
+                        if (angular.element(element).children().length > 0) {
+                            angular.element(element).children().scope().$broadcast('animOut', element, speed);
+                        }
+                        
                         angular.element(element).removeClass('anim-in');
                         angular.element(element).addClass('anim-out-setup');
 

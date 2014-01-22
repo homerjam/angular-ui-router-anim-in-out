@@ -1,6 +1,6 @@
 {
     "name": "angular-ui-router-anim-in-out",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "main": "anim-in-out.js",
     "dependencies": {
         "angular": "~1.2.8",
