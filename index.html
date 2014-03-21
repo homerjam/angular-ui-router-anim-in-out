@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" ng-app="ExampleApp" ng-controller="MainCtrl">
 
 	<head>
 
@@ -11,19 +11,64 @@
 
 		<title>angular-ui-router-anim-in-out</title>
 
+		<link rel="stylesheet" type="text/css" href="bower_components/bootflatv2/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="example/styles.css">
 		<link rel="stylesheet" type="text/css" href="css/anim-in-out.css">
 
 	</head>
 
-	<body ng-app="ExampleApp">
+	<body>
 
 		<div id="menu">
-			<a href="#/">Page 1</a>
-			<a href="#/page2/">Page 2</a>
+			<a href="#/"><button class="btn btn-primary">Page 1</button></a>
+			<a href="#/page2/"><button class="btn btn-primary">Page 2</button></a>
 		</div>
 
-		<div id="main" ui-view="main" autoscroll="false" class="anim-in-out anim-fade" data-anim-speed="500"></div>
+		<div id="controls">
+			<label class="control-label">Speed (ms)</label>
+			<input class="form-control input-sm" type="number" ng-model="speed">
+			<label class="control-label">Main View Style</label>
+			<select class="form-control input-sm" ng-model="mainViewStyle">
+				<option value="anim-fade">Fade</option>
+				<option value="anim-slide-left">Slide left</option>
+				<option value="anim-slide-right">Slide right</option>
+				<option value="anim-zoom-in">Zoom in subtle</option>
+				<option value="anim-zoom-out">Zoom out subtle</option>
+				<option value="anim-zoom-in-full">Zoom in full</option>
+				<option value="anim-zoom-out-full">Zoom out full</option>
+				<option value="anim-slide-below">Slide below</option>
+				<option value="anim-slide-below-fade">Slide below + fade</option>
+				<option value="anim-swap">None</option>
+			</select>
+			<label class="control-label">Page 1 Style</label>
+			<select class="form-control input-sm" ng-model="page1Style">
+				<option value="anim-fade">Fade</option>
+				<option value="anim-slide-left">Slide left</option>
+				<option value="anim-slide-right">Slide right</option>
+				<option value="anim-zoom-in">Zoom in subtle</option>
+				<option value="anim-zoom-out">Zoom out subtle</option>
+				<option value="anim-zoom-in-full">Zoom in full</option>
+				<option value="anim-zoom-out-full">Zoom out full</option>
+				<option value="anim-slide-below">Slide below</option>
+				<option value="anim-slide-below-fade">Slide below + fade</option>
+				<option value="anim-swap">None</option>
+			</select>
+			<label class="control-label">Page 2 Style</label>
+			<select class="form-control input-sm" ng-model="page2Style">
+				<option value="anim-fade">Fade</option>
+				<option value="anim-slide-left">Slide left</option>
+				<option value="anim-slide-right">Slide right</option>
+				<option value="anim-zoom-in">Zoom in subtle</option>
+				<option value="anim-zoom-out">Zoom out subtle</option>
+				<option value="anim-zoom-in-full">Zoom in full</option>
+				<option value="anim-zoom-out-full">Zoom out full</option>
+				<option value="anim-slide-below">Slide below</option>
+				<option value="anim-slide-below-fade">Slide below + fade</option>
+				<option value="anim-swap">None</option>
+			</select>
+		</div>
+
+		<div id="main" ui-view="main" autoscroll="false" class="anim-in-out {{mainViewStyle}}" data-anim-speed="{{speed}}" ng-style="{'-webkit-transition-duration': speed + 'ms','-moz-transition-duration': speed + 'ms','-ms-transition-duration': speed + 'ms','-o-transition-duration': speed + 'ms','transition-duration': speed + 'ms'}"></div>
 
 		<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
 		<script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>

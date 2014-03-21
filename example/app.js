@@ -2,6 +2,20 @@
 
     'use strict';
 
+    angular.module('MainCtrl', []).controller('MainCtrl', ['$scope',
+        function($scope) {
+
+            $scope.speed = 500;
+
+            $scope.mainViewStyle = 'anim-fade';
+
+            $scope.page1Style = 'anim-zoom-out';
+
+            $scope.page2Style = 'anim-slide-below-fade';
+
+        }
+    ]);
+
     angular.module('Page1Ctrl', []).controller('Page1Ctrl', ['$scope',
         function($scope) {
 
@@ -30,7 +44,7 @@
         }
     ]);
 
-    angular.module('ExampleApp', ['ngAnimate', 'ui.router', 'anim-in-out', 'Page1Ctrl', 'Page2Ctrl'])
+    angular.module('ExampleApp', ['ngAnimate', 'ui.router', 'anim-in-out', 'MainCtrl', 'Page1Ctrl', 'Page2Ctrl'])
         .config(['$stateProvider', '$locationProvider', '$urlRouterProvider',
             function($stateProvider, $locationProvider, $urlRouterProvider) {
 
