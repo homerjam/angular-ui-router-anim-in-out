@@ -1,19 +1,21 @@
 {
-  "name": "angular-ui-router-anim-in-out",
-  "description": "Directive for use with ngAnimate and ui-router, providing events between transition phases",
-  "version": "0.0.7",
-  "main": "anim-in-out.js",
-  "ignore": [
-  	"*",
-  	"!anim-in-out.js"
-  ],
-  "dependencies": {
-    "angular": "~1.2.14",
-    "angular-animate": "~1.2.14",
-    "angular-ui": "~0.4.0",
-    "angular-ui-router": "~0.2.10"
-  },
-  "devDependencies": {
-    "bootflatv2": "*"
-  }
+    "name": "angular-ui-router-anim-in-out",
+    "description": "Directive for use with ngAnimate and ui-router, providing events between transition phases",
+    "version": "0.0.8",
+    "main": "anim-in-out.js",
+    "ignore": [
+        "*",
+        "!anim-in-out.js",
+        "!css/*.css",
+        "!scss/*.scss"
+    ],
+    "dependencies": {
+        "angular": "~1.2.14",
+        "angular-animate": "~1.2.14",
+        "angular-ui": "~0.4.0",
+        "angular-ui-router": "~0.2.10"
+    },
+    "devDependencies": {
+        "bootflatv2": "*"
+    }
 }
