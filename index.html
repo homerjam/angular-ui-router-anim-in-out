@@ -27,6 +27,8 @@
 		<div id="controls">
 			<label class="control-label">Speed (ms)</label>
 			<input class="form-control input-sm" type="number" ng-model="speed">
+			<label class="control-label">Syncronise</label>
+			<input class="form-control input-sm" type="checkbox" ng-model="sync">
 			<label class="control-label">Main View Style</label>
 			<select class="form-control input-sm" ng-model="mainViewStyle">
 				<option value="anim-fade">Fade</option>
@@ -68,7 +70,7 @@
 			</select>
 		</div>
 
-		<div id="main" ui-view="main" autoscroll="false" class="anim-in-out {{mainViewStyle}}" data-anim-speed="{{speed}}" ng-style="{'-webkit-transition-duration': speed + 'ms','-moz-transition-duration': speed + 'ms','-ms-transition-duration': speed + 'ms','-o-transition-duration': speed + 'ms','transition-duration': speed + 'ms'}"></div>
+		<div id="main" ui-view="main" autoscroll="false" class="anim-in-out {{mainViewStyle}}" data-anim-sync="{{sync}}" data-anim-speed1="{{speed}}" ng-style="{'-webkit-transition-duration': speed + 'ms','-moz-transition-duration': speed + 'ms','-ms-transition-duration': speed + 'ms','-o-transition-duration': speed + 'ms','transition-duration': speed + 'ms'}"></div>
 
 		<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
 		<script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
