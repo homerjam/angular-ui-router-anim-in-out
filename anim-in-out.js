@@ -6,11 +6,12 @@
             function($rootScope, $timeout) {
                 return {
                     enter: function(element, done) {
-                        var speed = angular.element(element).attr('data-anim-speed') !== undefined ? parseInt(angular.element(element).attr('data-anim-speed')) : 1000;
+                        var speed = angular.element(element).attr('data-anim-speed') !== undefined ? $rootScope.$eval(angular.element(element).attr('data-anim-speed')) : 1000;
+                        var inSpeed = angular.element(element).attr('data-anim-in-speed') !== undefined ? $rootScope.$eval(angular.element(element).attr('data-anim-in-speed')) : speed;
 
                         angular.element(element).addClass('anim-in-setup');
 
-                        $timeout(done, speed);
+                        $timeout(done, inSpeed);
 
                         return function(cancelled) {
                             angular.element(element).removeClass('anim-in-setup');
@@ -18,24 +19,25 @@
 
                             if (!cancelled) {
                                 if (angular.element(element).children().length > 0) {
-                                    angular.element(element).children().scope().$broadcast('animIn', element, speed);
+                                    angular.element(element).children().scope().$broadcast('animIn', element, inSpeed);
                                 }
 
                                 $timeout(function(){
-                                    $rootScope.$emit('animEnd', element, speed);
+                                    $rootScope.$emit('animEnd', element, inSpeed);
 
                                     angular.element(element).removeClass('anim-in');
-                                }, speed);
+                                }, inSpeed);
                             }
                         };
                     },
                     leave: function(element, done) {
-                        var speed = angular.element(element).attr('data-anim-speed') !== undefined ? parseInt(angular.element(element).attr('data-anim-speed')) : 1000;
+                        var speed = angular.element(element).attr('data-anim-speed') !== undefined ? $rootScope.$eval(angular.element(element).attr('data-anim-speed')) : 1000;
+                        var outSpeed = angular.element(element).attr('data-anim-out-speed') !== undefined ? $rootScope.$eval(angular.element(element).attr('data-anim-out-speed')) : speed;
 
-                        $rootScope.$emit('animStart', element, speed);
+                        $rootScope.$emit('animStart', element, outSpeed);
 
                         if (angular.element(element).children().length > 0) {
-                            angular.element(element).children().scope().$broadcast('animOut', element, speed);
+                            angular.element(element).children().scope().$broadcast('animOut', element, outSpeed);
                         }
                         
                         angular.element(element).removeClass('anim-in');
@@ -46,7 +48,7 @@
                             angular.element(element).addClass('anim-out');
                         }, 0);
 
-                        $timeout(done, speed);
+                        $timeout(done, outSpeed);
                     }
                 };
             }

@@ -1,4 +1,6 @@
-@import "../bourbon/bourbon";
+@import "bourbon/bourbon";
+
+$speed: 500ms;
 
 .anim-in-out {
 
@@ -53,48 +55,48 @@
 
 		&.anim-fade, .anim-fade {
 			opacity: 1;
-			@include transition(all 500ms);
+			@include transition(all $speed);
 		}
 
 		&.anim-slide-left, .anim-slide-left {
 			@include transform(translateX(0));
-			@include transition(all 500ms);
+			@include transition(all $speed);
 		}
 
 		&.anim-slide-right, .anim-slide-right {
 			@include transform(translateX(0));
-			@include transition(all 500ms);
+			@include transition(all $speed);
 		}
 
 		&.anim-slide-below, .anim-slide-below {
 			@include transform(translateY(0));
-			@include transition(all 500ms);
+			@include transition(all $speed);
 		}
 
 		&.anim-slide-below-fade, .anim-slide-below-fade {
 			opacity: 1;
 			@include transform(translateY(0));
-			@include transition(all 500ms);
+			@include transition(all $speed);
 		}
 
 		&.anim-zoom-out, .anim-zoom-out {
 			@include transform(scale(1));
-			@include transition(all 500ms);
+			@include transition(all $speed);
 		}
 
 		&.anim-zoom-in, .anim-zoom-in {
 			@include transform(scale(1));
-			@include transition(all 500ms);
+			@include transition(all $speed);
 		}
 
 		&.anim-zoom-out-full, .anim-zoom-out-full {
 			@include transform(scale(1));
-			@include transition(all 500ms);
+			@include transition(all $speed);
 		}
 
 		&.anim-zoom-in-full, .anim-zoom-in-full {
 			@include transform(scale(1));
-			@include transition(all 500ms);
+			@include transition(all $speed);
 		}
 
 	}
@@ -106,48 +108,48 @@
 
 		&.anim-fade, .anim-fade {
 			opacity: 1;
-			@include transition(all 500ms);
+			@include transition(all $speed);
 		}
 
 		&.anim-slide-left, .anim-slide-left {
 			@include transform(translateX(0));
-			@include transition(all 500ms);
+			@include transition(all $speed);
 		}
 
 		&.anim-slide-right, .anim-slide-right {
 			@include transform(translateX(0));
-			@include transition(all 500ms);
+			@include transition(all $speed);
 		}
 
 		&.anim-slide-below, .anim-slide-below {
 			@include transform(translateY(0));
-			@include transition(all 500ms);
+			@include transition(all $speed);
 		}
 
 		&.anim-slide-below-fade, .anim-slide-below-fade {
 			opacity: 1;
 			@include transform(translateY(0));
-			@include transition(all 500ms);
+			@include transition(all $speed);
 		}
 
 		&.anim-zoom-out, .anim-zoom-out {
 			@include transform(scale(1));
-			@include transition(all 500ms);
+			@include transition(all $speed);
 		}
 
 		&.anim-zoom-in, .anim-zoom-in {
 			@include transform(scale(1));
-			@include transition(all 500ms);
+			@include transition(all $speed);
 		}
 
 		&.anim-zoom-out-full, .anim-zoom-out-full {
 			@include transform(scale(1));
-			@include transition(all 500ms);
+			@include transition(all $speed);
 		}
 
 		&.anim-zoom-in-full, .anim-zoom-in-full {
 			@include transform(scale(1));
-			@include transition(all 500ms);
+			@include transition(all $speed);
 		}
 
 	}
@@ -160,48 +162,48 @@
 
 		&.anim-fade, .anim-fade {
 			opacity: 0;
-			@include transition(all 500ms);
+			@include transition(all $speed);
 		}
 
 		&.anim-slide-left, .anim-slide-left {
 			@include transform(translateX(-100%));
-			@include transition(all 500ms);
+			@include transition(all $speed);
 		}
 
 		&.anim-slide-right, .anim-slide-right {
 			@include transform(translateX(100%));
-			@include transition(all 500ms);
+			@include transition(all $speed);
 		}
 
 		&.anim-slide-below, .anim-slide-below {
 			@include transform(translateY(20px));
-			@include transition(all 500ms);
+			@include transition(all $speed);
 		}
 
 		&.anim-slide-below-fade, .anim-slide-below-fade {
 			opacity: 0;
 			@include transform(translateY(20px));
-			@include transition(all 500ms);
+			@include transition(all $speed);
 		}
 
 		&.anim-zoom-out, .anim-zoom-out {
 			@include transform(scale(0.95));
-			@include transition(all 500ms);
+			@include transition(all $speed);
 		}
 
 		&.anim-zoom-in, .anim-zoom-in {
 			@include transform(scale(1.025));
-			@include transition(all 500ms);
+			@include transition(all $speed);
 		}
 
 		&.anim-zoom-out-full, .anim-zoom-out-full {
 			@include transform(scale(0));
-			@include transition(all 500ms);
+			@include transition(all $speed);
 		}
 
 		&.anim-zoom-in-full, .anim-zoom-in-full {
 			@include transform(scale(10));
-			@include transition(all 500ms);
+			@include transition(all $speed);
 		}
 
 	}
