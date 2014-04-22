@@ -2,28 +2,40 @@
     'use strict';
 
     angular.module('anim-in-out', ['ngAnimate'])
-        .animation('.anim-in-out', ['$rootScope', '$timeout',
-            function($rootScope, $timeout) {
+        .animation('.anim-in-out', ['$rootScope', '$timeout', '$window',
+            function($rootScope, $timeout, $window) {
                 return {
                     enter: function(element, done) {
                         var sync = $rootScope.$eval(angular.element(element).attr('data-anim-sync')) !== undefined ? $rootScope.$eval(angular.element(element).attr('data-anim-sync')) : false,
                             speed = angular.element(element).attr('data-anim-speed') !== undefined ? $rootScope.$eval(angular.element(element).attr('data-anim-speed')) : 1000,
                             inSpeed = angular.element(element).attr('data-anim-in-speed') !== undefined ? $rootScope.$eval(angular.element(element).attr('data-anim-in-speed')) : speed;
 
+                        var observer = new MutationObserver(function(mutations) {
+                            observer.disconnect();
+
+                            $window.requestAnimationFrame(function() {
+                                angular.element(element).removeClass('anim-in-setup');
+                                angular.element(element).addClass('anim-in');
+
+                                $timeout(done, sync ? 0 : inSpeed);
+                            });
+                        });
+
+                        observer.observe(element[0], {
+                            attributes: true,
+                            childList: false,
+                            characterData: false
+                        });
+
                         angular.element(element).addClass('anim-in-setup');
 
-                        $timeout(done, sync ? 0 : inSpeed);
-
                         return function(cancelled) {
-                            angular.element(element).removeClass('anim-in-setup');
-                            angular.element(element).addClass('anim-in');
-
                             if (!cancelled) {
                                 if (angular.element(element).children().length > 0) {
                                     angular.element(element).children().scope().$broadcast('animIn', element, inSpeed);
                                 }
 
-                                $timeout(function(){
+                                $timeout(function() {
                                     $rootScope.$emit('animEnd', element, inSpeed);
 
                                     angular.element(element).removeClass('anim-in');
@@ -40,16 +52,25 @@
                         if (angular.element(element).children().length > 0) {
                             angular.element(element).children().scope().$broadcast('animOut', element, outSpeed);
                         }
-                        
-                        angular.element(element).removeClass('anim-in');
+
+                        var observer = new MutationObserver(function(mutations) {
+                            observer.disconnect();
+
+                            $window.requestAnimationFrame(function() {
+                                angular.element(element).removeClass('anim-out-setup');
+                                angular.element(element).addClass('anim-out');
+
+                                $timeout(done, outSpeed);
+                            });
+                        });
+
+                        observer.observe(element[0], {
+                            attributes: true,
+                            childList: false,
+                            characterData: false
+                        });
+
                         angular.element(element).addClass('anim-out-setup');
-
-                        $timeout(function(){
-                            angular.element(element).removeClass('anim-out-setup');
-                            angular.element(element).addClass('anim-out');
-                        }, 0);
-
-                        $timeout(done, outSpeed);
                     }
                 };
             }
