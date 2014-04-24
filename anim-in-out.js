@@ -8,16 +8,14 @@
                     enter: function(element, done) {
                         var sync = $rootScope.$eval(angular.element(element).attr('data-anim-sync')) !== undefined ? $rootScope.$eval(angular.element(element).attr('data-anim-sync')) : false,
                             speed = angular.element(element).attr('data-anim-speed') !== undefined ? $rootScope.$eval(angular.element(element).attr('data-anim-speed')) : 1000,
-                            inSpeed = angular.element(element).attr('data-anim-in-speed') !== undefined ? $rootScope.$eval(angular.element(element).attr('data-anim-in-speed')) : speed;
+                            inSpeed = angular.element(element).attr('data-anim-in-speed') !== undefined ? $rootScope.$eval(angular.element(element).attr('data-anim-in-speed')) : speed,
+                            outSpeed = angular.element(element).attr('data-anim-out-speed') !== undefined ? $rootScope.$eval(angular.element(element).attr('data-anim-out-speed')) : speed;
 
                         var observer = new MutationObserver(function(mutations) {
                             observer.disconnect();
 
                             $window.requestAnimationFrame(function() {
-                                angular.element(element).removeClass('anim-in-setup');
-                                angular.element(element).addClass('anim-in');
-
-                                $timeout(done, sync ? 0 : inSpeed);
+                                $timeout(done, sync ? 0 : outSpeed);
                             });
                         });
 
@@ -30,8 +28,11 @@
                         angular.element(element).addClass('anim-in-setup');
 
                         return function(cancelled) {
+                            angular.element(element).removeClass('anim-in-setup');
+                            angular.element(element).addClass('anim-in');
+
                             if (!cancelled) {
-                                if (angular.element(element).children().length > 0) {
+                                if (angular.element(element).children().length > 0 && angular.element(element).children().scope() !== undefined) {
                                     angular.element(element).children().scope().$broadcast('animIn', element, inSpeed);
                                 }
 
