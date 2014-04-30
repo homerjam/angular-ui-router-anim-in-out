@@ -11,19 +11,24 @@
                             inSpeed = angular.element(element).attr('data-anim-in-speed') !== undefined ? $rootScope.$eval(angular.element(element).attr('data-anim-in-speed')) : speed,
                             outSpeed = angular.element(element).attr('data-anim-out-speed') !== undefined ? $rootScope.$eval(angular.element(element).attr('data-anim-out-speed')) : speed;
 
-                        var observer = new MutationObserver(function(mutations) {
-                            observer.disconnect();
+                        if ($window.MutationObserver) {
+                            var observer = new MutationObserver(function(mutations) {
+                                observer.disconnect();
 
-                            $window.requestAnimationFrame(function() {
-                                $timeout(done, sync ? 0 : outSpeed);
+                                $window.requestAnimationFrame(function() {
+                                    $timeout(done, sync ? 0 : outSpeed);
+                                });
                             });
-                        });
 
-                        observer.observe(element[0], {
-                            attributes: true,
-                            childList: false,
-                            characterData: false
-                        });
+                            observer.observe(element[0], {
+                                attributes: true,
+                                childList: false,
+                                characterData: false
+                            });
+
+                        } else {
+                            $timeout(done, sync ? 100 : outSpeed);
+                        }
 
                         angular.element(element).addClass('anim-in-setup');
 
@@ -54,22 +59,32 @@
                             angular.element(element).children().scope().$broadcast('animOut', element, outSpeed);
                         }
 
-                        var observer = new MutationObserver(function(mutations) {
-                            observer.disconnect();
+                        if ($window.MutationObserver) {
+                            var observer = new MutationObserver(function(mutations) {
+                                observer.disconnect();
 
-                            $window.requestAnimationFrame(function() {
+                                $window.requestAnimationFrame(function() {
+                                    angular.element(element).removeClass('anim-out-setup');
+                                    angular.element(element).addClass('anim-out');
+
+                                    $timeout(done, outSpeed);
+                                });
+                            });
+
+                            observer.observe(element[0], {
+                                attributes: true,
+                                childList: false,
+                                characterData: false
+                            });
+
+                        } else {
+                            $timeout(function(){
                                 angular.element(element).removeClass('anim-out-setup');
                                 angular.element(element).addClass('anim-out');
 
                                 $timeout(done, outSpeed);
-                            });
-                        });
-
-                        observer.observe(element[0], {
-                            attributes: true,
-                            childList: false,
-                            characterData: false
-                        });
+                            }, 100);
+                        }
 
                         angular.element(element).addClass('anim-out-setup');
                     }
