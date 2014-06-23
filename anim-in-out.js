@@ -11,7 +11,7 @@
                             inSpeed = angular.element(element).attr('data-anim-in-speed') !== undefined ? $rootScope.$eval(angular.element(element).attr('data-anim-in-speed')) : speed,
                             outSpeed = angular.element(element).attr('data-anim-out-speed') !== undefined ? $rootScope.$eval(angular.element(element).attr('data-anim-out-speed')) : speed;
 
-                        if ($window.MutationObserver) {
+                        try {
                             var observer = new MutationObserver(function(mutations) {
                                 observer.disconnect();
 
@@ -26,8 +26,8 @@
                                 characterData: false
                             });
 
-                        } else {
-                            $timeout(done, sync ? 100 : outSpeed);
+                        } catch (e) {
+                            $timeout(done, Math.max(100, sync ? 0 : outSpeed));
                         }
 
                         angular.element(element).addClass('anim-in-setup');
@@ -59,7 +59,7 @@
                             angular.element(element).children().scope().$broadcast('animOut', element, outSpeed);
                         }
 
-                        if ($window.MutationObserver) {
+                        try {
                             var observer = new MutationObserver(function(mutations) {
                                 observer.disconnect();
 
@@ -77,13 +77,11 @@
                                 characterData: false
                             });
 
-                        } else {
-                            $timeout(function(){
-                                angular.element(element).removeClass('anim-out-setup');
-                                angular.element(element).addClass('anim-out');
+                        } catch(e) {
+                            angular.element(element).removeClass('anim-out-setup');
+                            angular.element(element).addClass('anim-out');
 
-                                $timeout(done, outSpeed);
-                            }, 100);
+                            $timeout(done, Math.max(100, outSpeed));
                         }
 
                         angular.element(element).addClass('anim-out-setup');
