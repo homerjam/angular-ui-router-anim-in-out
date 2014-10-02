@@ -43,22 +43,22 @@ Animations are triggered by javascript in order to provide events.
 ```js
 // In your main controller
     
-$rootScope.$on('animStart', function(element, speed) {
+$rootScope.$on('animStart', function($event, element, speed) {
     // do something
 });
     
-$rootScope.$on('animEnd', function(element, speed) {
+$rootScope.$on('animEnd', function($event, element, speed) {
     // do something
 });
     
     
 // In your state controllers
     
-$scope.$on('animIn', function(element, speed) {
+$scope.$on('animIn', function($event, element, speed) {
     // do something
 });
     
-$scope.$on('animOut', function(element, speed) {
+$scope.$on('animOut', function($event, element, speed) {
     // do something, eg. scroll to top of page
 });
 ```
