@@ -37,12 +37,12 @@
                             angular.element(element).addClass('anim-in');
 
                             if (!cancelled) {
-                                if (angular.element(element).children().length > 0 && angular.element(element).children().scope() !== undefined) {
-                                    angular.element(element).children().scope().$broadcast('animIn', element, inSpeed);
+                                if (angular.element(element).scope()) {
+                                    angular.element(element).scope().$broadcast('animIn', element, inSpeed);
                                 }
 
                                 $timeout(function() {
-                                    $rootScope.$emit('animEnd', element, inSpeed);
+                                    $rootScope.$broadcast('animEnd', element, inSpeed);
 
                                     angular.element(element).removeClass('anim-in');
                                 }, inSpeed);
@@ -53,10 +53,10 @@
                         var speed = angular.element(element).attr('data-anim-speed') !== undefined ? $rootScope.$eval(angular.element(element).attr('data-anim-speed')) : 1000,
                             outSpeed = angular.element(element).attr('data-anim-out-speed') !== undefined ? $rootScope.$eval(angular.element(element).attr('data-anim-out-speed')) : speed;
 
-                        $rootScope.$emit('animStart', element, outSpeed);
+                        $rootScope.$broadcast('animStart', element, outSpeed);
 
-                        if (angular.element(element).children().length > 0) {
-                            angular.element(element).children().scope().$broadcast('animOut', element, outSpeed);
+                        if (angular.element(element).scope()) {
+                            angular.element(element).scope().$broadcast('animOut', element, outSpeed);
                         }
 
                         try {
@@ -77,7 +77,7 @@
                                 characterData: false
                             });
 
-                        } catch(e) {
+                        } catch (e) {
                             angular.element(element).removeClass('anim-out-setup');
                             angular.element(element).addClass('anim-out');
 

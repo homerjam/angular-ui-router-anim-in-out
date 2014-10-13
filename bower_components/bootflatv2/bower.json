@@ -1,11 +1,15 @@
 {
   "name": "Bootflat",
-  "version": "2.0.0",
+  "version": "2.0.4",
   "homepage": "http://bootflat.github.io",
   "authors": [
-    "Dong Xu <bootflat2@gmail.com>"
+    "flathemes <info@flathemes.com>"
   ],
-  "description": "BOOTFLAT is an open source Flat UI KIT based on Bootstrap 3.1.0 CSS framework. It provides a faster, easier and less repetitive way for web developers to create elegant web apps.",
+  "description": "BOOTFLAT is an open source Flat UI KIT based on Bootstrap 3.2.0 CSS framework. It provides a faster, easier and less repetitive way for web developers to create elegant web apps.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bootflat/bootflat.github.io.git"
+  },
   "main": [
     "bootflat/css/*",
     "bootflat/scss/*",
@@ -14,20 +18,27 @@
     "bootflat/img/*"
   ],
   "keywords": [
-    "mobile",
-    "html5",
-    "bootflat",
-    "bootstrap"
+	"mobile",
+	"html5",
+	"css3",
+	"scss",
+	"bootflat",
+	"bootstrap",
+	"flat",
+	"flat ui",
+	"ui"
   ],
   "license": "MIT",
-  "private": false,
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "angularicons",
+    "free-psd.html",
     "documentation.html",
     "getting-started.html",
-    "index.html"
+    "index.html",
+    "test",
+    "tests"
   ]
 }

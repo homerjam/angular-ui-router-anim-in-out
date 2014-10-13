@@ -42,7 +42,6 @@ Animations are triggered by javascript in order to provide events.
 
 ```js
 // In your main controller
-    
 $rootScope.$on('animStart', function($event, element, speed) {
     // do something
 });
@@ -53,7 +52,6 @@ $rootScope.$on('animEnd', function($event, element, speed) {
     
     
 // In your state controllers
-    
 $scope.$on('animIn', function($event, element, speed) {
     // do something
 });
@@ -74,9 +72,13 @@ By default the animation of the incoming state will be triggered after a delay (
 
 
 
-## Compile Sass (requires Bourbon)
+## Compile Sass
 
-`$ sass scss/anim-in-out.scss css/anim-in-out.css`
+    # Install gulp and dependencies
+    $ npm install
+    
+    # Compile sass
+    $ gulp sass
 
 
 ## Demo

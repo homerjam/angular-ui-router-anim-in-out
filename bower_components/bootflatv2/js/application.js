@@ -4,12 +4,25 @@
 
 !function ($) {
   $(function(){
-    Holder.add_theme("new", { background: "#AC92EC", foreground: "#fff", size: 12 }).run();
 
     $('.tooltip-demo').tooltip({
       selector: "[data-toggle=tooltip]",
       container: "body"
     });
+
+	$("input[type='number']").stepper();
+
+	$(".selecter_1").selecter();
+
+	$(".selecter_2").selecter();
+
+	$(".selecter_3").selecter();
+
+	$(".selecter_4").selecter();
+
+	$(".selecter_5").selecter();
+
+	$(".selecter_6").selecter();
 
     $('.checkbox input').iCheck({
         checkboxClass: 'icheckbox_flat',
@@ -24,4 +37,3 @@
     $('#accordion2').collapse();
   })
 }(window.jQuery)
-

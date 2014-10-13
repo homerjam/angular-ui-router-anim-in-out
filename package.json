@@ -1,0 +1,30 @@
+{
+  "name": "angular-ui-router-anim-in-out",
+  "version": "0.0.13",
+  "description": "An animation directive to use with ngAnimate 1.2+ and ui-router",
+  "main": "anim-in-out.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://homerjam@github.com/homerjam/angular-ui-router-anim-in-out.git"
+  },
+  "author": "James Homer",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/homerjam/angular-ui-router-anim-in-out/issues"
+  },
+  "homepage": "https://github.com/homerjam/angular-ui-router-anim-in-out",
+  "devDependencies": {
+    "autoprefixer-core": "^3.1.1",
+    "gulp": "^3.8.8",
+    "gulp-angular-templatecache": "^1.4.2",
+    "gulp-postcss": "^2.0.0",
+    "gulp-sass": "^1.1.0",
+    "run-sequence": "^1.0.1"
+  }
+}

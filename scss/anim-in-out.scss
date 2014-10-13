@@ -1,5 +1,3 @@
-@import "bourbon/bourbon";
-
 $speed: 500ms;
 
 .anim-in-out {
@@ -14,36 +12,36 @@ $speed: 500ms;
 		}
 
 		&.anim-slide-left, .anim-slide-left {
-			@include transform(translateX(100%));
+			transform: translateX(100%);
 		}
 
 		&.anim-slide-right, .anim-slide-right {
-			@include transform(translateX(-100%));
+			transform: translateX(-100%);
 		}
 
 		&.anim-slide-below, .anim-slide-below {
-			@include transform(translateY(20px));
+			transform: translateY(20px);
 		}
 
 		&.anim-slide-below-fade, .anim-slide-below-fade {
 			opacity: 0;
-			@include transform(translateY(20px));
+			transform: translateY(20px);
 		}
 
 		&.anim-zoom-out, .anim-zoom-out {
-			@include transform(scale(0.95));
+			transform: scale(0.95);
 		}
 
 		&.anim-zoom-in, .anim-zoom-in {
-			@include transform(scale(1.025));
+			transform: scale(1.025);
 		}
 
 		&.anim-zoom-out-full, .anim-zoom-out-full {
-			@include transform(scale(0));
+			transform: scale(0);
 		}
 
 		&.anim-zoom-in-full, .anim-zoom-in-full {
-			@include transform(scale(10));
+			transform: scale(10);
 		}
 
 	}
@@ -55,48 +53,48 @@ $speed: 500ms;
 
 		&.anim-fade, .anim-fade {
 			opacity: 1;
-			@include transition(all $speed);
+			transition: all $speed;
 		}
 
 		&.anim-slide-left, .anim-slide-left {
-			@include transform(translateX(0));
-			@include transition(all $speed);
+			transform: translateX(0);
+			transition: all $speed;
 		}
 
 		&.anim-slide-right, .anim-slide-right {
-			@include transform(translateX(0));
-			@include transition(all $speed);
+			transform: translateX(0);
+			transition: all $speed;
 		}
 
 		&.anim-slide-below, .anim-slide-below {
-			@include transform(translateY(0));
-			@include transition(all $speed);
+			transform: translateY(0);
+			transition: all $speed;
 		}
 
 		&.anim-slide-below-fade, .anim-slide-below-fade {
 			opacity: 1;
-			@include transform(translateY(0));
-			@include transition(all $speed);
+			transform: translateY(0);
+			transition: all $speed;
 		}
 
 		&.anim-zoom-out, .anim-zoom-out {
-			@include transform(scale(1));
-			@include transition(all $speed);
+			transform: scale(1);
+			transition: all $speed;
 		}
 
 		&.anim-zoom-in, .anim-zoom-in {
-			@include transform(scale(1));
-			@include transition(all $speed);
+			transform: scale(1);
+			transition: all $speed;
 		}
 
 		&.anim-zoom-out-full, .anim-zoom-out-full {
-			@include transform(scale(1));
-			@include transition(all $speed);
+			transform: scale(1);
+			transition: all $speed;
 		}
 
 		&.anim-zoom-in-full, .anim-zoom-in-full {
-			@include transform(scale(1));
-			@include transition(all $speed);
+			transform: scale(1);
+			transition: all $speed;
 		}
 
 	}
@@ -108,48 +106,48 @@ $speed: 500ms;
 
 		&.anim-fade, .anim-fade {
 			opacity: 1;
-			@include transition(all $speed);
+			transition: all $speed;
 		}
 
 		&.anim-slide-left, .anim-slide-left {
-			@include transform(translateX(0));
-			@include transition(all $speed);
+			transform: translateX(0);
+			transition: all $speed;
 		}
 
 		&.anim-slide-right, .anim-slide-right {
-			@include transform(translateX(0));
-			@include transition(all $speed);
+			transform: translateX(0);
+			transition: all $speed;
 		}
 
 		&.anim-slide-below, .anim-slide-below {
-			@include transform(translateY(0));
-			@include transition(all $speed);
+			transform: translateY(0);
+			transition: all $speed;
 		}
 
 		&.anim-slide-below-fade, .anim-slide-below-fade {
 			opacity: 1;
-			@include transform(translateY(0));
-			@include transition(all $speed);
+			transform: translateY(0);
+			transition: all $speed;
 		}
 
 		&.anim-zoom-out, .anim-zoom-out {
-			@include transform(scale(1));
-			@include transition(all $speed);
+			transform: scale(1);
+			transition: all $speed;
 		}
 
 		&.anim-zoom-in, .anim-zoom-in {
-			@include transform(scale(1));
-			@include transition(all $speed);
+			transform: scale(1);
+			transition: all $speed;
 		}
 
 		&.anim-zoom-out-full, .anim-zoom-out-full {
-			@include transform(scale(1));
-			@include transition(all $speed);
+			transform: scale(1);
+			transition: all $speed;
 		}
 
 		&.anim-zoom-in-full, .anim-zoom-in-full {
-			@include transform(scale(1));
-			@include transition(all $speed);
+			transform: scale(1);
+			transition: all $speed;
 		}
 
 	}
@@ -162,48 +160,48 @@ $speed: 500ms;
 
 		&.anim-fade, .anim-fade {
 			opacity: 0;
-			@include transition(all $speed);
+			transition: all $speed;
 		}
 
 		&.anim-slide-left, .anim-slide-left {
-			@include transform(translateX(-100%));
-			@include transition(all $speed);
+			transform: translateX(-100%);
+			transition: all $speed;
 		}
 
 		&.anim-slide-right, .anim-slide-right {
-			@include transform(translateX(100%));
-			@include transition(all $speed);
+			transform: translateX(100%);
+			transition: all $speed;
 		}
 
 		&.anim-slide-below, .anim-slide-below {
-			@include transform(translateY(20px));
-			@include transition(all $speed);
+			transform: translateY(20px);
+			transition: all $speed;
 		}
 
 		&.anim-slide-below-fade, .anim-slide-below-fade {
 			opacity: 0;
-			@include transform(translateY(20px));
-			@include transition(all $speed);
+			transform: translateY(20px);
+			transition: all $speed;
 		}
 
 		&.anim-zoom-out, .anim-zoom-out {
-			@include transform(scale(0.95));
-			@include transition(all $speed);
+			transform: scale(0.95);
+			transition: all $speed;
 		}
 
 		&.anim-zoom-in, .anim-zoom-in {
-			@include transform(scale(1.025));
-			@include transition(all $speed);
+			transform: scale(1.025);
+			transition: all $speed;
 		}
 
 		&.anim-zoom-out-full, .anim-zoom-out-full {
-			@include transform(scale(0));
-			@include transition(all $speed);
+			transform: scale(0);
+			transition: all $speed;
 		}
 
 		&.anim-zoom-in-full, .anim-zoom-in-full {
-			@include transform(scale(10));
-			@include transition(all $speed);
+			transform: scale(10);
+			transition: all $speed;
 		}
 
 	}

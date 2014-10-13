@@ -1,10 +1,15 @@
 {
   "name": "Bootflat",
+  "version": "2.0.4",
   "homepage": "http://bootflat.github.io",
   "authors": [
-    "Dong Xu <bootflat2@gmail.com>"
+    "flathemes <info@flathemes.com>"
   ],
-  "description": "BOOTFLAT is an open source Flat UI KIT based on Bootstrap 3.1.0 CSS framework. It provides a faster, easier and less repetitive way for web developers to create elegant web apps.",
+  "description": "BOOTFLAT is an open source Flat UI KIT based on Bootstrap 3.2.0 CSS framework. It provides a faster, easier and less repetitive way for web developers to create elegant web apps.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bootflat/bootflat.github.io.git"
+  },
   "main": [
     "bootflat/css/*",
     "bootflat/scss/*",
@@ -15,25 +20,32 @@
   "keywords": [
     "mobile",
     "html5",
+    "css3",
+    "scss",
     "bootflat",
-    "bootstrap"
+    "bootstrap",
+    "flat",
+    "flat ui",
+    "ui"
   ],
   "license": "MIT",
-  "private": false,
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
     "angularicons",
+    "free-psd.html",
     "documentation.html",
     "getting-started.html",
-    "index.html"
+    "index.html",
+    "test",
+    "tests"
   ],
-  "_release": "470fde6d40",
+  "_release": "2.0.4",
   "_resolution": {
-    "type": "branch",
-    "branch": "master",
-    "commit": "470fde6d400cdcca9fdc8c0a699a6d006e5f46d3"
+    "type": "version",
+    "tag": "v2.0.4",
+    "commit": "3fa37732cd5b2b97d4f8d101e0c1fcd4db39bf32"
   },
   "_source": "git://github.com/bootflat/bootflat.github.io.git",
   "_target": "*",
