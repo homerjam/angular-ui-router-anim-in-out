@@ -55,7 +55,8 @@ $rootScope.$on('animEnd', function($event, element, speed) {
 $scope.$on('animIn', function($event, element, speed) {
     // do something
 });
-    
+
+// BROKEN see angular/angular.js#6974
 $scope.$on('animOut', function($event, element, speed) {
     // do something, eg. scroll to top of page
 });
