@@ -70,6 +70,11 @@ By default the animation of the incoming state will be triggered after a delay (
 ```
 
 
+## Gotchas
+
+If you notice a difference in behaviour after compiling your app such as an initial transition failing to trigger the suggestion in this [comment](https://github.com/angular/angular.js/issues/5130#issuecomment-34371140)/[plunkr](http://plnkr.co/edit/aoyRehXQnItGYA0EzTOC?p=preview) may help you*.
+
+\* _warning: filthy hack_ ; )
 
 
 ## Compile Sass
