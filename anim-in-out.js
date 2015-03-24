@@ -53,8 +53,10 @@
                         var speed = angular.element(element).attr('data-anim-speed') !== undefined ? $rootScope.$eval(angular.element(element).attr('data-anim-speed')) : 1000,
                             outSpeed = angular.element(element).attr('data-anim-out-speed') !== undefined ? $rootScope.$eval(angular.element(element).attr('data-anim-out-speed')) : speed;
 
+                        console.log('$rootScope', $rootScope);
                         $rootScope.$broadcast('animStart', element, outSpeed);
 
+                        console.log('angular.element(element).scope()', angular.element(element).scope());
                         if (angular.element(element).scope()) {
                             angular.element(element).scope().$broadcast('animOut', element, outSpeed);
                         }
