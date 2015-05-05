@@ -3,6 +3,7 @@
     "description": "Directive for use with ngAnimate and ui-router, providing events between transition phases",
     "version": "0.0.14",
     "main": "anim-in-out.js",
+    "license": "MIT",
     "ignore": [
         "*",
         "!anim-in-out.js",
