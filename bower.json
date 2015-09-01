@@ -11,9 +11,9 @@
         "!scss/*.scss"
     ],
     "dependencies": {
-        "angular": "~1.2.14",
-        "angular-animate": "~1.2.14",
-        "angular-ui-router": "~0.2.10"
+        "angular": ">=1.2",
+        "angular-animate": ">=1.2",
+        "angular-ui-router": ">=0.2"
     },
     "devDependencies": {
         "bootflatv2": "*"
