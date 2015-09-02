@@ -1,8 +1,11 @@
 {
     "name": "angular-ui-router-anim-in-out",
     "description": "Directive for use with ngAnimate and ui-router, providing events between transition phases",
-    "version": "0.0.14",
-    "main": "anim-in-out.js",
+    "version": "0.0.15",
+    "main": [
+        "anim-in-out.js",
+        "css/anim-in-out.css"
+    ],
     "license": "MIT",
     "ignore": [
         "*",
