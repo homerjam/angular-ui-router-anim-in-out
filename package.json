@@ -1,8 +1,8 @@
 {
   "name": "angular-ui-router-anim-in-out",
   "version": "1.0.0",
-  "description": "An animation directive to use with ngAnimate 1.2+ and ui-router",
-  "main": "anim-in-out.js",
+  "description": "An animation directive to use with ngAnimate 1.2+ and ui-router, providing events between transition phases",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
