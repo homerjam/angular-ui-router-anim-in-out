@@ -49,17 +49,6 @@ $rootScope.$on('animStart', function($event, element, speed) {
 $rootScope.$on('animEnd', function($event, element, speed) {
     // do something
 });
-    
-    
-// In your state controllers
-$scope.$on('animIn', function($event, element, speed) {
-    // do something
-});
-
-// BROKEN see angular/angular.js#6974
-$scope.$on('animOut', function($event, element, speed) {
-    // do something, eg. scroll to top of page
-});
 ```
 
 The default transition speed is `1000ms` this can be altered using the `data-anim-speed` attribute on the `ui-view`. This is optionally further customised by the `data-anim-in-speed` and `data-anim-out-speed` attributes.
@@ -73,10 +62,20 @@ By default the animation of the incoming state will be triggered after a delay (
 
 ## Gotchas
 
-If you notice a difference in behaviour after compiling your app such as an initial transition failing to trigger the suggestion in this [comment](https://github.com/angular/angular.js/issues/5130#issuecomment-34371140)/[plunkr](http://plnkr.co/edit/aoyRehXQnItGYA0EzTOC?p=preview) may help you*.
+If you notice a difference in behaviour after compiling your app such as an initial transition failing to trigger the suggestion in this [comment](https://github.com/angular/angular.js/issues/5130#issuecomment-34371140)/[plunkr](http://plnkr.co/edit/aoyRehXQnItGYA0EzTOC?p=preview) may help you, or see below:.
 
-\* _warning: filthy hack_ ; )
-
+```js
+angular
+    .module('app', ['ngAnimate'])
+    .controller('MainCtrl', function ($scope, $timeout, $rootElement) {
+        // Monkey-patch for ngAnimate to force animations to be played right
+        // on the first digest. A "run-time revert" of this commit:
+        // https://github.com/angular/angular.js/commit/eed2333298412fbad04eda97ded3487c845b9eb9
+        // Note: dirty hack! Do not use in production code unless you accept
+        // all consequences!
+        $rootElement.data("$$ngAnimateState").running = false;
+    });
+```
 
 ## Compile Sass
 

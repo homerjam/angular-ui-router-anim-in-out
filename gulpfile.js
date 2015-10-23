@@ -13,7 +13,7 @@ gulp.task('default', function() {
 gulp.task('sass', function() {
     return gulp.src('./scss/*.scss')
         .pipe(sass())
-        .pipe(postcss([require('autoprefixer-core')]))
+        .pipe(postcss([require('autoprefixer')]))
         .pipe(gulp.dest('./css'));
 });
 

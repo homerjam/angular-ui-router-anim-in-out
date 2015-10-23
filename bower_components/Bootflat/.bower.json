@@ -48,6 +48,7 @@
     "commit": "3fa37732cd5b2b97d4f8d101e0c1fcd4db39bf32"
   },
   "_source": "git://github.com/bootflat/bootflat.github.io.git",
-  "_target": "*",
-  "_originalSource": "bootflatv2"
+  "_target": "~2.0.4",
+  "_originalSource": "Bootflat",
+  "_direct": true
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en" ng-app="ExampleApp" ng-controller="MainCtrl">
+<html class="no-js" lang="en" ng-app="ExampleApp" ng-controller="MainCtrl as ctrl">
 
 	<head>
 
@@ -11,7 +11,7 @@
 
 		<title>angular-ui-router-anim-in-out</title>
 
-		<link rel="stylesheet" type="text/css" href="bower_components/bootflatv2/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="bower_components/Bootflat/css/site.min.css">
 		<link rel="stylesheet" type="text/css" href="example/styles.css">
 		<link rel="stylesheet" type="text/css" href="css/anim-in-out.css">
 
@@ -21,16 +21,19 @@
 
 		<div id="menu">
 			<a href="#/"><button class="btn btn-primary">Page 1</button></a>
-			<a href="#/page2/"><button class="btn btn-primary">Page 2</button></a>
+			<a href="#/page2"><button class="btn btn-primary">Page 2</button></a>
 		</div>
 
 		<div id="controls">
 			<label class="control-label">Speed (ms)</label>
-			<input class="form-control input-sm" type="number" ng-model="speed">
+			<input class="form-control input-sm" type="number" ng-model="ctrl.speed">
 			<label class="control-label">Syncronise</label>
-			<input class="form-control input-sm" type="checkbox" ng-model="sync">
+			<label class="toggle">
+				<input type="checkbox" ng-model="ctrl.sync">
+				<span class="handle"></span>
+			</label>
 			<label class="control-label">Main View Style</label>
-			<select class="form-control input-sm" ng-model="mainViewStyle">
+			<select class="form-control input-sm" ng-model="ctrl.mainViewStyle">
 				<option value="anim-fade">Fade</option>
 				<option value="anim-slide-left">Slide left</option>
 				<option value="anim-slide-right">Slide right</option>
@@ -43,7 +46,7 @@
 				<option value="anim-swap">None</option>
 			</select>
 			<label class="control-label">Page 1 Style</label>
-			<select class="form-control input-sm" ng-model="page1Style">
+			<select class="form-control input-sm" ng-model="ctrl.page1Style">
 				<option value="anim-fade">Fade</option>
 				<option value="anim-slide-left">Slide left</option>
 				<option value="anim-slide-right">Slide right</option>
@@ -56,7 +59,7 @@
 				<option value="anim-swap">None</option>
 			</select>
 			<label class="control-label">Page 2 Style</label>
-			<select class="form-control input-sm" ng-model="page2Style">
+			<select class="form-control input-sm" ng-model="ctrl.page2Style">
 				<option value="anim-fade">Fade</option>
 				<option value="anim-slide-left">Slide left</option>
 				<option value="anim-slide-right">Slide right</option>
@@ -70,7 +73,16 @@
 			</select>
 		</div>
 
-		<div id="main" ui-view="main" autoscroll="false" class="anim-in-out {{mainViewStyle}}" data-anim-sync="{{sync}}" data-anim-speed="{{speed}}" ng-style="{'-webkit-transition-duration': speed + 'ms','-moz-transition-duration': speed + 'ms','-ms-transition-duration': speed + 'ms','-o-transition-duration': speed + 'ms','transition-duration': speed + 'ms'}"></div>
+		<div id="main" ui-view="main" autoscroll="false" class="anim-in-out {{ctrl.mainViewStyle}}"
+			data-anim-sync="{{ctrl.sync}}"
+			data-anim-speed="{{ctrl.speed}}"
+			ng-style="{
+				'-webkit-transition-duration': ctrl.speed + 'ms',
+				'-moz-transition-duration': ctrl.speed + 'ms',
+				'-ms-transition-duration': ctrl.speed + 'ms',
+				'-o-transition-duration': ctrl.speed + 'ms',
+				'transition-duration': ctrl.speed + 'ms'
+			}"></div>
 
 		<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
 		<script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>

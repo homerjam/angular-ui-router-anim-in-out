@@ -37,10 +37,6 @@
                             angular.element(element).addClass('anim-in');
 
                             if (!cancelled) {
-                                if (angular.element(element).scope()) {
-                                    angular.element(element).scope().$broadcast('animIn', element, inSpeed);
-                                }
-
                                 $timeout(function() {
                                     $rootScope.$broadcast('animEnd', element, inSpeed);
 
@@ -54,10 +50,6 @@
                             outSpeed = angular.element(element).attr('data-anim-out-speed') !== undefined ? $rootScope.$eval(angular.element(element).attr('data-anim-out-speed')) : speed;
 
                         $rootScope.$broadcast('animStart', element, outSpeed);
-
-                        if (angular.element(element).scope()) {
-                            angular.element(element).scope().$broadcast('animOut', element, outSpeed);
-                        }
 
                         try {
                             var observer = new MutationObserver(function(mutations) {
