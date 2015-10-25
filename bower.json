@@ -4,8 +4,8 @@
   "version": "1.0.1",
   "main": [
     "anim-in-out.js",
-    "css/anim-in-out",
-    "scss/anim-in-out"
+    "css/anim-in-out.css",
+    "scss/anim-in-out.scss"
   ],
   "license": "MIT",
   "ignore": [
