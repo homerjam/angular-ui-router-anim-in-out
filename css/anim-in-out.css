@@ -1,3 +1,7 @@
+[ui-view] {
+  position: absolute;
+}
+
 .anim-in-out.anim-in-setup.anim-fade, .anim-in-out.anim-in-setup .anim-fade {
   opacity: 0; }
 
