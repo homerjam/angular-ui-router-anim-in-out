@@ -36,6 +36,8 @@ angular.module('ExampleApp', ['ngAnimate', 'ui.router', 'anim-in-out'])
 </div>
 ```
 
+**Note: you must use absolute positioning of `ui-view` elements**
+
 ## Usage
 
 Animations are triggered by javascript in order to provide events.
@@ -59,6 +61,10 @@ By default the animation of the incoming state will be triggered after a delay (
 <div ui-view="mainView" class="anim-in-out" data-anim-sync="true"></div>
 ```
 
+## FAQs
+
+#### Why is the position of my views all messed up? Or why are both views visible during the transition?
+This directive works as a supplement to `ui-router` and `ngAnimate`. The way these two libraries handle transitions is to add both incoming and outgoing views to the dom as sibling nodes, then add/remove the classes required to produce the transition effect. As the view elements exist in parallel in the dom you are required to use absolute positioning to counter the problem of one view effecting the others position.
 
 ## Gotchas
 
