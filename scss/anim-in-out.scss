@@ -1,5 +1,9 @@
 $speed: 500ms;
 
+[ui-view] {
+	position: absolute;
+}
+
 .anim-in-out {
 
 	&.anim-in-setup {
