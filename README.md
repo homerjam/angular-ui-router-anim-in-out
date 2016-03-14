@@ -5,7 +5,13 @@ An animation directive to use with ngAnimate 1.2+ and ui-router
 
 ## Installation
 
-`$ bower install angular-ui-router-anim-in-out --save`
+```
+$ bower install angular-ui-router-anim-in-out --save
+```
+or
+```
+$ npm i -D angular-ui-router-anim-in-out
+```
 
 
 ## Quick Start
